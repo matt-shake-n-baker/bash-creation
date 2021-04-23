@@ -1,5 +1,6 @@
 const pwd = require('./pwd.js');
 const ls = require('./ls.js')
+const cat = require('./cat.js')
 // Output a prompt
 process.stdout.write('prompt > ');
 
@@ -11,7 +12,12 @@ process.stdin.on('data', (data) => {
 
     } else if (cmd === 'ls') {
         ls();
-    } else {
+     }
+    else if (cmd.split(' ')[0] === 'cat'){
+        
+        cat(cmd.split(' ')[1])
+    }
+    else {
         process.stdout.write('You typed: ' + cmd);
         process.stdout.write('\nprompt > ')
     }
